@@ -17,7 +17,10 @@
   {:bump {:default-type "patch"}
    :publish {:no-verify true}}
   :workflows
-  [:auto-release :pre-merge-gate :security-gate]
+  ;; :auto-release retired 2026-07-30 -- a vendored fork tracks upstream's
+  ;; version and carries publish = false, so the release workflow can only
+  ;; ever fail. Full reason + how to restore: .github/workflows/RETIRED.md
+  [:pre-merge-gate :security-gate]
   :files
   [{:path "Cargo.toml"
    :sha256 "7f98c24fc64a3129e551b3e6148d1d402db52ae6c4260df53b45022f8682ded4"
